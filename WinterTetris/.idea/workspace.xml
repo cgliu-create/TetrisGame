@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="57ef569c-8549-446e-9c17-a27e92b3f481" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1YMUwTu1Yslco7GYxab6M2W0NDl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/CLOO" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GraphicsRunner" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="CLOO.GraphicsRunner" />
+      <module name="WinterTetris" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GraphicsRunner" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57ef569c-8549-446e-9c17-a27e92b3f481" name="Default Changelist" comment="" />
+      <created>1582752196784</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582752196784</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="23" key="#GraphicsRunner" timestamp="1582752387779">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="320" y="23" key="#GraphicsRunner/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582752387779" />
+    <state x="320" y="23" key="#Main" timestamp="1582752329044">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="320" y="23" key="#Main/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582752329044" />
+    <state width="1168" height="172" key="GridCell.Tab.0.bottom" timestamp="1582754510022">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1168" height="172" key="GridCell.Tab.0.bottom/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510022" />
+    <state width="1168" height="172" key="GridCell.Tab.0.center" timestamp="1582754510021">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1168" height="172" key="GridCell.Tab.0.center/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510021" />
+    <state width="1168" height="172" key="GridCell.Tab.0.left" timestamp="1582754510020">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1168" height="172" key="GridCell.Tab.0.left/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510020" />
+    <state width="1168" height="172" key="GridCell.Tab.0.right" timestamp="1582754510021">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1168" height="172" key="GridCell.Tab.0.right/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510021" />
+    <state x="449" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1582752210880">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="449" y="147" key="com.intellij.ide.util.TipDialog/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582752210880" />
+  </component>
+</project>
