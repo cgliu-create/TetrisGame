@@ -22,14 +22,24 @@ public class GraphicsRunner extends JFrame{
             }
             @Override
             public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    System.out.println("down");
+                    scene.updateGame();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    System.out.println("up");
+                    scene.updateGame();
+                    scene.addShape();
+                }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     System.out.println("left");
+                    scene.updateGame();
+                    scene.shiftL();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     System.out.println("right");
-                }
-                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    System.out.println("down");
+                    scene.updateGame();
+                    scene.shiftR();
                 }
             }
             @Override

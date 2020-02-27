@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57ef569c-8549-446e-9c17-a27e92b3f481" name="Default Changelist" comment="" />
+    <list default="true" id="57ef569c-8549-446e-9c17-a27e92b3f481" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CLOO/GraphicsRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CLOO/GraphicsRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CLOO/WinterScenePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CLOO/WinterScenePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CLOO/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CLOO/grid.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1YMUwTu1Yslco7GYxab6M2W0NDl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -56,25 +72,34 @@
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="320" y="23" key="#Main/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582752329044" />
-    <state width="1168" height="172" key="GridCell.Tab.0.bottom" timestamp="1582754510022">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1226" height="337" key="GridCell.Tab.0.bottom" timestamp="1582841972138">
+      <screen x="1440" y="-36" width="1280" height="1024" />
     </state>
+    <state width="1226" height="337" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-36.1280.1024/-1080.-94.1080.1920@1440.-36.1280.1024" timestamp="1582841972138" />
     <state width="1168" height="172" key="GridCell.Tab.0.bottom/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510022" />
-    <state width="1168" height="172" key="GridCell.Tab.0.center" timestamp="1582754510021">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1226" height="337" key="GridCell.Tab.0.center" timestamp="1582841972137">
+      <screen x="1440" y="-36" width="1280" height="1024" />
     </state>
+    <state width="1226" height="337" key="GridCell.Tab.0.center/0.0.1440.900/1440.-36.1280.1024/-1080.-94.1080.1920@1440.-36.1280.1024" timestamp="1582841972137" />
     <state width="1168" height="172" key="GridCell.Tab.0.center/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510021" />
-    <state width="1168" height="172" key="GridCell.Tab.0.left" timestamp="1582754510020">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1226" height="337" key="GridCell.Tab.0.left" timestamp="1582841972136">
+      <screen x="1440" y="-36" width="1280" height="1024" />
     </state>
+    <state width="1226" height="337" key="GridCell.Tab.0.left/0.0.1440.900/1440.-36.1280.1024/-1080.-94.1080.1920@1440.-36.1280.1024" timestamp="1582841972136" />
     <state width="1168" height="172" key="GridCell.Tab.0.left/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510020" />
-    <state width="1168" height="172" key="GridCell.Tab.0.right" timestamp="1582754510021">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1226" height="337" key="GridCell.Tab.0.right" timestamp="1582841972138">
+      <screen x="1440" y="-36" width="1280" height="1024" />
     </state>
+    <state width="1226" height="337" key="GridCell.Tab.0.right/0.0.1440.900/1440.-36.1280.1024/-1080.-94.1080.1920@1440.-36.1280.1024" timestamp="1582841972138" />
     <state width="1168" height="172" key="GridCell.Tab.0.right/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582754510021" />
-    <state x="449" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1582752210880">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state x="239" y="3" key="SettingsEditor" timestamp="1582840121737">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="239" y="3" key="SettingsEditor/0.0.1440.900/1440.-36.1280.1024/-1080.-94.1080.1920@1440.-36.1280.1024" timestamp="1582840121737" />
+    <state x="-743" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1582839372233">
+      <screen x="-1080" y="-71" width="1080" height="1897" />
     </state>
     <state x="449" y="147" key="com.intellij.ide.util.TipDialog/0.23.1440.827/-2360.-71.1080.1897/-1280.23.1280.1001@0.23.1440.827" timestamp="1582752210880" />
+    <state x="-743" y="213" key="com.intellij.ide.util.TipDialog/0.23.1440.827/1440.-13.1280.1001/-1080.-71.1080.1897@-1080.-71.1080.1897" timestamp="1582839372233" />
   </component>
 </project>
