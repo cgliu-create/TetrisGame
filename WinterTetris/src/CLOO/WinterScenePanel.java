@@ -10,8 +10,8 @@ public class WinterScenePanel extends JPanel implements Runnable
 	private AbstractShape atree = new TREE(430, 330, 50, 50);
 	private grid gamedata = new grid();
 	public void updateGame(){
-		gamedata.rowDelete();
 		gamedata.shiftDownPlayer();
+		gamedata.rowDelete();
 	}
 	public void addShape(){
 		gamedata.addSquare();
