@@ -59,6 +59,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 	}
    public void run() {
 	    int time = 0;
+	   	int t = 0;
 	    try {
 			while(true){
 				Thread.currentThread();
@@ -84,8 +85,12 @@ public class WinterScenePanel extends JPanel implements Runnable
 					}
 				}
 				if (time == 8){
-					updateGame();
 					time = 0;
+				}
+				t++;
+				if (t == 16){
+					updateGame();
+					t = 0;
 				}
 				repaint();
 			}
