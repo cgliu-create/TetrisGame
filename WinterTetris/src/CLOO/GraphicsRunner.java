@@ -28,17 +28,14 @@ public class GraphicsRunner extends JFrame{
                 }
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     System.out.println("up");
-                    //scene.updateGame();
                     scene.addShape();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     System.out.println("left");
-                    //scene.updateGame();
                     scene.shiftL();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     System.out.println("right");
-                    //scene.updateGame();
                     scene.shiftR();
                 }
             }
