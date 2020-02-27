@@ -84,6 +84,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 					}
 				}
 				if (time == 8){
+					updateGame();
 					time = 0;
 				}
 				repaint();
