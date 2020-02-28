@@ -66,24 +66,38 @@ public class grid{
     }
     public void addSquare(){
         square.add(data);
+        setShape(0);
+        setRotation(1);
     }
     public void addLine(){
         line.add(data);
+        setShape(1);
+        setRotation(1);
     }
     public void addLShape(){
         lShape.add(data);
+        setShape(2);
+        setRotation(1);
     }
     public void addJShape(){
         jShape.add(data);
+        setShape(3);
+        setRotation(1);
     }
     public void addTee(){
         tee.add(data);
+        setShape(4);
+        setRotation(1);
     }
     public void addZShape(){
         zShape.add(data);
+        setShape(5);
+        setRotation(1);
     }
     public void addSShape(){
         sShape.add(data);
+        setShape(6);
+        setRotation(1);
     }
     // draws circles based off data
     // window.drawOval(100, 20, 25, 25);
