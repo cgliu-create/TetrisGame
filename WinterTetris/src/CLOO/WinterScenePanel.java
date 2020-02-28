@@ -45,7 +45,9 @@ public class WinterScenePanel extends JPanel implements Runnable
 	public void shiftR(){
 		gamedata.shiftPlayerR();
 	}
-	public void makeRotation(){}
+	public void makeRotation(){
+		//insert stuff
+	}
 	public WinterScenePanel()
 	{
 		setVisible(true);
@@ -86,7 +88,6 @@ public class WinterScenePanel extends JPanel implements Runnable
 	   	int t = 0;
 	    try {
 			while(true){
-				Thread.currentThread();
 				Thread.sleep(35);
 				//snow
 				for (AbstractShape a : shapes) {
@@ -116,6 +117,9 @@ public class WinterScenePanel extends JPanel implements Runnable
 				){
 					updateGame();
 					t = 0;
+				}
+				if(!(gamedata.checkforTwos())){
+					addShape();
 				}
 				repaint();
 			}

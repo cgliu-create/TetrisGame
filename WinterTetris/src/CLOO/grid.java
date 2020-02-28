@@ -99,6 +99,17 @@ public class grid{
         setShape(6);
         setRotation(1);
     }
+    // checks to regenerate player shape
+    public boolean checkforTwos(){
+        for (int[][] datum : data) {
+            for (int[] ints : datum) {
+                if (ints[2] == 2) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     // draws circles based off data
     // window.drawOval(100, 20, 25, 25);
     public void draw(Graphics window)
@@ -121,7 +132,6 @@ public class grid{
         boolean full = true;
         //checks if row is full
         for (int row = data.length-1; row > 0; row --){
-            int rx = row;
             for (int col = 0; col < data[data.length-1].length; col++ ){
                 if (data[row][col][2] == 0) {
                     full = false;

@@ -29,7 +29,7 @@ public class GraphicsRunner extends JFrame{
                 }
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     System.out.println("up");
-                    scene.addShape();
+                    scene.makeRotation();
                     //rotate
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -48,7 +48,7 @@ public class GraphicsRunner extends JFrame{
             }
         });
     }
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         GraphicsRunner run = new GraphicsRunner();
         //grid d = new grid();
         //System.out.println(d);
