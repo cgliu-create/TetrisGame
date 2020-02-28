@@ -16,9 +16,6 @@ public class WinterScenePanel extends JPanel implements Runnable
 	public void addShape(){
 		int s =(int)(Math.random()*7);
 		switch (s) {
-			case 0:
-				gamedata.addSquare();
-				break;
 			case 1:
 				gamedata.addLine();
 				break;
@@ -29,7 +26,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 				gamedata.addJShape();
 				break;
 			case 4:
-				gamedata.addTree();
+				gamedata.addTee();
 				break;
 			case 5:
 				gamedata.addZShape();
@@ -48,6 +45,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 	public void shiftR(){
 		gamedata.shiftPlayerR();
 	}
+	public void makeRotation(){}
 	public WinterScenePanel()
 	{
 		setVisible(true);

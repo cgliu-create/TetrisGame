@@ -8,6 +8,15 @@ public class grid{
     // let 1 = draw shape
     // let 2 = draw a shape that the player can move
     private int[][][] data = new int[20][12][3];
+    private int shape = 0;
+    private int rotation = 1;
+    private gridSquare square = new gridSquare();
+    private gridLine line = new gridLine();
+    private gridLShape lShape = new gridLShape();
+    private gridJShape jShape = new gridJShape();
+    private gridTee tee = new gridTee();
+    private gridZShape zShape = new gridZShape();
+    private gridSShape sShape = new gridSShape();
     public grid(){
         //add y cord
         for (int row = 0; row < data.length; row ++) {
@@ -28,19 +37,53 @@ public class grid{
             }
         }
     }
-    public String toString(){
-        String out = "";
-        for (int[][] a : data) {
-            for (int[] b : a) {
-                out = out + "{";
-                out = out + b[0];
-                out = out + "," + b[1];
-                out = out + "," + b[2];
-                out = out + "}";
-            }
-            out = out + "\n";
-        }
-        return out;
+    // all shapes fit in a 4 by 4 square
+    /*
+        data[0][3][2] = 2; data[0][4][2] = 2; data[0][5][2] = 2; data[0][6][2] = 2;
+        data[1][3][2] = 2; data[1][4][2] = 2; data[1][5][2] = 2; data[1][6][2] = 2;
+        data[2][3][2] = 2; data[2][4][2] = 2; data[2][5][2] = 2; data[2][6][2] = 2;
+        data[3][3][2] = 2; data[3][4][2] = 2; data[3][5][2] = 2; data[3][6][2] = 2;
+        let 0 = square
+        let 1 = line
+        let 2 = Lshape
+        let 3 = Jshape
+        let 4 = Tee
+        let 5 = Zshape
+        let 6 = Sshape
+        rotations = 1,2,3,4
+    */
+    public void setShape(int s){
+        shape = s;
+    }
+    public int getShape() {
+        return shape;
+    }
+    public void setRotation(int r){
+        rotation = r;
+    }
+    public int getRotation() {
+        return rotation;
+    }
+    public void addSquare(){
+        square.add(data);
+    }
+    public void addLine(){
+        line.add(data);
+    }
+    public void addLShape(){
+        lShape.add(data);
+    }
+    public void addJShape(){
+        jShape.add(data);
+    }
+    public void addTee(){
+        tee.add(data);
+    }
+    public void addZShape(){
+        zShape.add(data);
+    }
+    public void addSShape(){
+        sShape.add(data);
     }
     // draws circles based off data
     // window.drawOval(100, 20, 25, 25);
@@ -130,6 +173,7 @@ public class grid{
             }
         }
     }
+    //add bounds specific to shape!
     public void shiftPlayerR(){
         for (int col = data[0].length -1; col > 0; col-- ){
             for (int row = 0; row< data.length; row ++) {
@@ -140,55 +184,18 @@ public class grid{
             }
         }
     }
-    // all shapes fit in a 4 by 4 square
-    /*
-        data[0][3][2] = 2; data[0][4][2] = 2; data[0][5][2] = 2; data[0][6][2] = 2;
-        data[1][3][2] = 2; data[1][4][2] = 2; data[1][5][2] = 2; data[1][6][2] = 2;
-        data[2][3][2] = 2; data[2][4][2] = 2; data[2][5][2] = 2; data[2][6][2] = 2;
-        data[3][3][2] = 2; data[3][4][2] = 2; data[3][5][2] = 2; data[3][6][2] = 2;
-     */
-    //let 3 = ref for rotation
-    //int val in class for cur type of shape
-    public void addSquare(){
-        data[0][3][2] = 0; data[0][4][2] = 0; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 0; data[1][4][2] = 2; data[1][5][2] = 2; data[1][6][2] = 0;
-        data[2][3][2] = 0; data[2][4][2] = 2; data[2][5][2] = 2; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
-    }
-    public void addLine(){
-        data[0][3][2] = 0; data[0][4][2] = 2; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 0; data[1][4][2] = 2; data[1][5][2] = 0; data[1][6][2] = 0;
-        data[2][3][2] = 0; data[2][4][2] = 2; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 2; data[3][5][2] = 0; data[3][6][2] = 0;
-    }
-    public void addLShape(){
-        data[0][3][2] = 2; data[0][4][2] = 2; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 0; data[1][4][2] = 2; data[1][5][2] = 0; data[1][6][2] = 0;
-        data[2][3][2] = 0; data[2][4][2] = 2; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
-    }
-    public void addJShape(){
-        data[0][3][2] = 0; data[0][4][2] = 2; data[0][5][2] = 2; data[0][6][2] = 0;
-        data[1][3][2] = 0; data[1][4][2] = 2; data[1][5][2] = 0; data[1][6][2] = 0;
-        data[2][3][2] = 0; data[2][4][2] = 2; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
-    }
-    public void addTree(){
-        data[0][3][2] = 0; data[0][4][2] = 2; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 2; data[1][4][2] = 2; data[1][5][2] = 2; data[1][6][2] = 0;
-        data[2][3][2] = 0; data[2][4][2] = 0; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
-    }
-    public void addZShape(){
-        data[0][3][2] = 0; data[0][4][2] = 2; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 2; data[1][4][2] = 2; data[1][5][2] = 0; data[1][6][2] = 0;
-        data[2][3][2] = 2; data[2][4][2] = 0; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
-    }
-    public void addSShape(){
-        data[0][3][2] = 2; data[0][4][2] = 0; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 2; data[1][4][2] = 2; data[1][5][2] = 0; data[1][6][2] = 0;
-        data[2][3][2] = 0; data[2][4][2] = 2; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
+    public String toString(){
+        String out = "";
+        for (int[][] a : data) {
+            for (int[] b : a) {
+                out = out + "{";
+                out = out + b[0];
+                out = out + "," + b[1];
+                out = out + "," + b[2];
+                out = out + "}";
+            }
+            out = out + "\n";
+        }
+        return out;
     }
 }
