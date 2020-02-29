@@ -15,7 +15,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 	}
 	public void addShape(){
 		//int s =(int)(Math.random()*7);
-		int s=1;
+		int s =(int)(Math.random()*3);
 		switch (s) {
 			case 1:
 				gamedata.addLine();
@@ -56,6 +56,15 @@ public class WinterScenePanel extends JPanel implements Runnable
 			}
 			gamedata.setRotation(r);
 			gamedata.rotateLine(r);
+		}
+		if(gamedata.getShape()==2){
+			r = gamedata.getRotation();
+			r = r+1;
+			if (r == 5){
+				r = 1;
+			}
+			gamedata.setRotation(r);
+			gamedata.rotateLShape(r);
 		}
 	}
 	public WinterScenePanel()

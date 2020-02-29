@@ -119,7 +119,24 @@ public class grid{
             line.updateData(data);
         }
     }
-    public void rotateLShape(int Rot){}
+    public void rotateLShape(int Rot){
+        if(Rot == 1){
+            lShape.rotOne();
+            lShape.updateData(data);
+        }
+        if(Rot == 2){
+            lShape.rotTwo();
+            lShape.updateData(data);
+        }
+        if(Rot == 3){
+            lShape.rotThree();
+            lShape.updateData(data);
+        }
+        if(Rot == 4){
+            lShape.rotFour();
+            lShape.updateData(data);
+        }
+    }
     public void rotateJShape(int Rot){}
     public void rotateTee(int Rot){}
     public void rotateZShape(int Rot){}
@@ -146,6 +163,17 @@ public class grid{
                 line.shiftedD();
             }
         }
+        if(shape == 2){
+            if (dir == 1){
+                lShape.shiftedL();
+            }
+            if (dir == 2){
+                lShape.shiftedR();
+            }
+            if (dir == 3){
+                lShape.shiftedD();
+            }
+        }
         //add the rest of the shapes
     }
     // checks to regenerate player shape
@@ -158,6 +186,7 @@ public class grid{
             }
         }
         line.reset();
+        lShape.reset();
         return false;
     }
     // draws circles based off data
@@ -166,6 +195,9 @@ public class grid{
     {
         if(shape == 1){
             line.draw(window,data);
+        }
+        if(shape == 2){
+            lShape.draw(window,data);
         }
         for (int[][] a : data) {
             for (int[] b : a) {

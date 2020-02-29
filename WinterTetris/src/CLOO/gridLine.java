@@ -77,14 +77,19 @@ public class gridLine {
     }
     public void shiftedL(){
         for (int r = 0; r < group.length; r++) {
-            for (int c = 0; c < group[r].length; c++) {
+            for (int c = group[r].length-1; c>=0 ; c--) {
                 int dc = group[r][c][1];
                 dc = dc - 1;
-                //can slide along ref box
+                //ref box bounds
                 if(dc == -1){
-                    dc = 3;
+                    group[r][c][1] = 0;
+                    group[r][c+1][1] = 1;
+                    group[r][c+2][1] = 2;
+                    group[r][c+3][1] = 3;
                 }
-                group[r][c][1] = dc;
+                if(dc != -1) {
+                    group[r][c][1] = dc;
+                }
             }
         }
     }
@@ -93,11 +98,16 @@ public class gridLine {
             for (int c = 0; c < group[r].length; c++) {
                 int dc = group[r][c][1];
                 dc = dc + 1;
-                //can slide along ref box
+                //ref box bounds
                 if(dc == 12){
-                    dc = 8;
+                    group[r][c][1] = 11;
+                    group[r][c-1][1] = 10;
+                    group[r][c-2][1] = 9;
+                    group[r][c-3][1] = 8;
                 }
-                group[r][c][1] = dc;
+                if(dc != 12) {
+                    group[r][c][1] = dc;
+                }
             }
         }
     }
