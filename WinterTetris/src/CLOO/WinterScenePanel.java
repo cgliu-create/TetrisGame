@@ -15,8 +15,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 	}
 	public void addShape(){
 		int s =(int)(Math.random()*7);
-		// testing
-		s = 6;
+		// testing s = 3;
 		switch (s) {
 			case 1:
 				gamedata.addLine();
