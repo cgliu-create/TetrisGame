@@ -2,9 +2,17 @@ package CLOO;
 //Name -Christopher Liu
 //Class - P.8
 import java.awt.*;
-import javax.swing.JPanel;
+import javax.swing.*;
+
 public class WinterScenePanel extends JPanel implements Runnable
 {
+	private int score = 0;
+	public void incrementScore(){
+		score = score + 1;
+	}
+	public void resetScore(){
+		score = 0;
+	}
 	private AbstractShape [] shapes = new AbstractShape [10];	
 	private AbstractShape sMan = new SnowMan(35, 350, 40, 40);
 	private AbstractShape atree = new TREE(430, 330, 50, 50);
@@ -38,6 +46,9 @@ public class WinterScenePanel extends JPanel implements Runnable
 			default:
 				gamedata.addSquare();
 				break;
+		}
+		if (gamedata.checkifAllRowsNotEmpty()){
+			playAgain();
 		}
 	}
 	public void shiftL(){
@@ -115,6 +126,18 @@ public class WinterScenePanel extends JPanel implements Runnable
 		window.setColor(Color.WHITE);
 		window.setFont(new Font("TAHOMA", Font.BOLD,37));
 		window.drawString("WINTER TETRIS",100,550);
+		window.setFont(new Font("TAHOMA", Font.BOLD,20));
+		window.drawString("SCORE",0,20);
+		window.drawString(""+score,0,50);
+	}
+	public void playAgain(){
+		JFrame f = new JFrame();
+		String again = JOptionPane.showInputDialog(f, "Play again?");
+		if (again.equalsIgnoreCase("y") || again.equalsIgnoreCase("yes")) {
+			gamedata.resetGame();
+		} else {
+			System.exit(0);
+		}
 	}
    public void run() {
 	    int time = 0;
@@ -153,6 +176,10 @@ public class WinterScenePanel extends JPanel implements Runnable
 				}
 				if(!(gamedata.checkforTwos())){
 					addShape();
+				}
+				if (gamedata.isRowdeleted()){
+					incrementScore();
+					gamedata.setRowdeleted(false);
 				}
 				repaint();
 			}

@@ -9,6 +9,15 @@ public class grid{
     // let 1 = draw shape
     // let 2 = draw a shape that the player can move
     // let 3 = temp support spots for complex shapes
+    private boolean rowdeleted = false;
+    public void setRowdeleted(boolean t){
+        rowdeleted = t;
+    }
+
+    public boolean isRowdeleted() {
+        return rowdeleted;
+    }
+
     private int[][][] data = new int[20][12][3];
     private int shape = 0;
     private int rotation = 1;
@@ -373,6 +382,7 @@ public class grid{
             //shifts everything down deleting the full row adding a empty row to the top
             if (full){
                 updateGridShape(3);
+                setRowdeleted(true);
                 for (int r = row; r > 0; r --) {
                     for (int c = 0; c < data[r].length; c++) {
                         data[r][c][2] = data[r-1][c][2];
@@ -461,6 +471,45 @@ public class grid{
                 }
             }
         }
+    }
+    public void resetGame(){
+        for (int row = 0; row < data.length; row ++) {
+            for (int col = 0; col < data[row].length; col++) {
+                data[row][col][2] = 0;
+            }
+        }
+    }
+    public boolean checkIfRowNotEmpty(int row){
+        for (int col = 0; col < data[row].length; col++) {
+            if(data[row][col][2] == 2 || data[row][col][2] == 1){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean checkifAllRowsNotEmpty(){
+        boolean r0 = checkIfRowNotEmpty(0);
+        boolean r1 = checkIfRowNotEmpty(1);
+        boolean r2 = checkIfRowNotEmpty(2);
+        boolean r3 = checkIfRowNotEmpty(3);
+        boolean r4 = checkIfRowNotEmpty(4);
+        boolean r5 = checkIfRowNotEmpty(5);
+        boolean r6 = checkIfRowNotEmpty(6);
+        boolean r7 = checkIfRowNotEmpty(7);
+        boolean r8 = checkIfRowNotEmpty(8);
+        boolean r9 = checkIfRowNotEmpty(9);
+        boolean r10 = checkIfRowNotEmpty(10);
+        boolean r11 = checkIfRowNotEmpty(11);
+        boolean r12 = checkIfRowNotEmpty(12);
+        boolean r13 = checkIfRowNotEmpty(13);
+        boolean r14 = checkIfRowNotEmpty(14);
+        boolean r15 = checkIfRowNotEmpty(15);
+        boolean r16 = checkIfRowNotEmpty(16);
+        boolean r17 = checkIfRowNotEmpty(17);
+        boolean r18 = checkIfRowNotEmpty(18);
+        boolean r19 = checkIfRowNotEmpty(19);
+        return r0 && r1 && r2 && r3 && r4 && r5 && r6 && r7 && r8 && r9 &&
+                r10 && r11 && r12 && r13 && r14 && r15 && r16 && r17 && r18 && r19;
     }
     public String toString(){
         String out = "";
