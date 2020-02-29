@@ -8,6 +8,7 @@ public class grid{
     // let 0 = empty
     // let 1 = draw shape
     // let 2 = draw a shape that the player can move
+    // let 3 = temp support spots for complex shapes
     private int[][][] data = new int[20][12][3];
     private int shape = 0;
     private int rotation = 1;
@@ -137,10 +138,78 @@ public class grid{
             lShape.updateData(data);
         }
     }
-    public void rotateJShape(int Rot){}
-    public void rotateTee(int Rot){}
-    public void rotateZShape(int Rot){}
-    public void rotateSShape(int Rot){}
+    public void rotateJShape(int Rot){
+        if(Rot == 1){
+            jShape.rotOne();
+            jShape.updateData(data);
+        }
+        if(Rot == 2){
+            jShape.rotTwo();
+            jShape.updateData(data);
+        }
+        if(Rot == 3){
+            jShape.rotThree();
+            jShape.updateData(data);
+        }
+        if(Rot == 4){
+            jShape.rotFour();
+            jShape.updateData(data);
+        }
+    }
+    public void rotateTee(int Rot){
+        if(Rot == 1){
+            tee.rotOne();
+            tee.updateData(data);
+        }
+        if(Rot == 2){
+            tee.rotTwo();
+            tee.updateData(data);
+        }
+        if(Rot == 3){
+            tee.rotThree();
+            tee.updateData(data);
+        }
+        if(Rot == 4){
+            tee.rotFour();
+            tee.updateData(data);
+        }
+    }
+    public void rotateZShape(int Rot){
+        if(Rot == 1){
+            zShape.rotOne();
+            zShape.updateData(data);
+        }
+        if(Rot == 2){
+            zShape.rotTwo();
+            zShape.updateData(data);
+        }
+        if(Rot == 3){
+            zShape.rotThree();
+            zShape.updateData(data);
+        }
+        if(Rot == 4){
+            zShape.rotFour();
+            zShape.updateData(data);
+        }
+    }
+    public void rotateSShape(int Rot){
+        if(Rot == 1){
+            sShape.rotOne();
+            sShape.updateData(data);
+        }
+        if(Rot == 2){
+            sShape.rotTwo();
+            sShape.updateData(data);
+        }
+        if(Rot == 3){
+            sShape.rotThree();
+            sShape.updateData(data);
+        }
+        if(Rot == 4){
+            sShape.rotFour();
+            sShape.updateData(data);
+        }
+    }
     public void clearallTwos(){
         for (int row = 0; row < data.length; row ++) {
             for (int col = 0; col < data[row].length; col++) {
@@ -174,7 +243,59 @@ public class grid{
                 lShape.shiftedD();
             }
         }
-        //add the rest of the shapes
+        if(shape == 3){
+            if (dir == 1){
+                jShape.shiftedL();
+            }
+            if (dir == 2){
+                jShape.shiftedR();
+            }
+            if (dir == 3){
+                jShape.shiftedD();
+            }
+        }
+        if(shape == 4){
+            if (dir == 1){
+                tee.shiftedL();
+            }
+            if (dir == 2){
+                tee.shiftedR();
+            }
+            if (dir == 3){
+                tee.shiftedD();
+            }
+        }
+        if(shape == 5){
+            if (dir == 1){
+                zShape.shiftedL();
+            }
+            if (dir == 2){
+                zShape.shiftedR();
+            }
+            if (dir == 3){
+                zShape.shiftedD();
+            }
+        }
+        if(shape == 6){
+            if (dir == 1){
+                sShape.shiftedL();
+            }
+            if (dir == 2){
+                sShape.shiftedR();
+            }
+            if (dir == 3){
+                sShape.shiftedD();
+            }
+        }
+        /*
+        let 0 = square
+        let 1 = line
+        let 2 = Lshape
+        let 3 = Jshape
+        let 4 = Tee
+        let 5 = Zshape
+        let 6 = Sshape
+         */
     }
     // checks to regenerate player shape
     public boolean checkforTwos(){
@@ -187,6 +308,10 @@ public class grid{
         }
         line.reset();
         lShape.reset();
+        jShape.reset();
+        tee.reset();
+        zShape.reset();
+        sShape.reset();
         return false;
     }
     // draws circles based off data
@@ -199,6 +324,28 @@ public class grid{
         if(shape == 2){
             lShape.draw(window,data);
         }
+        if(shape == 3){
+            jShape.draw(window,data);
+        }
+        if(shape == 4){
+            tee.draw(window,data);
+        }
+        if(shape == 5){
+            zShape.draw(window,data);
+        }
+        if(shape == 6){
+            sShape.draw(window,data);
+        }
+        /*
+        let 0 = square
+        let 1 = line
+        let 2 = Lshape
+        let 3 = Jshape
+        let 4 = Tee
+        let 5 = Zshape
+        let 6 = Sshape
+         */
+
         for (int[][] a : data) {
             for (int[] b : a) {
                 if(b[2] == 1){
@@ -207,6 +354,10 @@ public class grid{
                 }
                 if(b[2] == 2){
                     window.setColor(Color.WHITE);
+                    window.drawOval(b[1], b[0], 25,25);
+                }
+                if(b[2] == 3){
+                    window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
             }
@@ -244,7 +395,7 @@ public class grid{
         for (int row = data.length-1; row > 0; row --) {
             //reads across col
             for (int col = 0; col < data[row].length; col++) {
-                if(data[row][col][2] == 0 && data[row-1][col][2] == 2 ){
+                if(data[row][col][2] == 0 && data[row-1][col][2] == 2 || data[row][col][2] == 0 && data[row-1][col][2] == 3){
                     //shifts data down cur is 0 and above is 2
                     data[row][col][2] = data[row-1][col][2];
                     data[row-1][col][2] = 0;
@@ -256,10 +407,25 @@ public class grid{
             if (data[data.length-1][col][2] == 2) {
                 data[data.length-1][col][2] = 1;
             }
+            // change 3 to 0
+            if (data[data.length-1][col][2] == 3) {
+                data[data.length-1][col][2] = 0;
+            }
+
         }
         for (int row = data.length-1; row > 0; row --) {
             //reads across col
             for (int col = 0; col < data[row].length; col++) {
+                // change all 3 to 0 if a 1 is below
+                if(data[row][col][2] == 1 && data[row-1][col][2] == 3 ){
+                    for (int r= 0; r < data.length; r ++) {
+                        for (int c = 0; c < data[r].length; c++) {
+                            if(data[r][c][2] == 3){
+                                data[r][c][2] = 0;
+                            }
+                        }
+                    }
+                }
                 // collision with a 1
                 if(data[row][col][2] == 1 && data[row-1][col][2] == 2 ){
                     //change all 2 to 1
@@ -276,9 +442,10 @@ public class grid{
     }
     public void shiftPlayerL(){
         updateGridShape(1);
+
         for (int col = 0; col < data[0].length-1; col++) {
             for (int row = 0; row< data.length; row ++) {
-                if(data[row][col][2] == 0 && data[row][col+1][2] == 2){
+                if(data[row][col][2] == 0 && data[row][col+1][2] == 2  || data[row][col][2] == 0 && data[row][col+1][2] == 3){
                     data[row][col][2] = data[row][col+1][2];
                     data[row][col+1][2] = 0;
                 }
@@ -288,9 +455,10 @@ public class grid{
     // need to add bounds specific to shape to prevent shape group changes
     public void shiftPlayerR(){
         updateGridShape(2);
+
         for (int col = data[0].length -1; col > 0; col-- ){
             for (int row = 0; row< data.length; row ++) {
-                if(data[row][col][2] == 0 && data[row][col-1][2] == 2){
+                if(data[row][col][2] == 0 && data[row][col-1][2] == 2 || data[row][col][2] == 0 && data[row][col-1][2] == 3){
                     data[row][col][2] = data[row][col-1][2];
                     data[row][col-1][2] = 0;
                 }

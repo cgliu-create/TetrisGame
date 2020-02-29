@@ -14,8 +14,9 @@ public class WinterScenePanel extends JPanel implements Runnable
 		gamedata.rowDelete();
 	}
 	public void addShape(){
-		//int s =(int)(Math.random()*7);
-		int s =(int)(Math.random()*3);
+		int s =(int)(Math.random()*7);
+		// testing
+		s = 6;
 		switch (s) {
 			case 1:
 				gamedata.addLine();
@@ -47,25 +48,39 @@ public class WinterScenePanel extends JPanel implements Runnable
 		gamedata.shiftPlayerR();
 	}
 	public void makeRotation(){
-		int r = 1;
-		if(gamedata.getShape()==1){
-			r = gamedata.getRotation();
-			r = r+1;
-			if (r == 5){
-				r = 1;
-			}
-			gamedata.setRotation(r);
+		int r = gamedata.getRotation();
+		r = r+1;
+		if (r == 5){
+			r = 1;
+		}
+		gamedata.setRotation(r);
+		if (gamedata.getShape()==1){
 			gamedata.rotateLine(r);
 		}
-		if(gamedata.getShape()==2){
-			r = gamedata.getRotation();
-			r = r+1;
-			if (r == 5){
-				r = 1;
-			}
-			gamedata.setRotation(r);
+		if (gamedata.getShape()==2){
 			gamedata.rotateLShape(r);
 		}
+		if (gamedata.getShape()==3){
+			gamedata.rotateJShape(r);
+		}
+		if (gamedata.getShape()==4){
+			gamedata.rotateTee(r);
+		}
+		if (gamedata.getShape()==5){
+			gamedata.rotateZShape(r);
+		}
+		if (gamedata.getShape()==6){
+			gamedata.rotateSShape(r);
+		}
+		 /*
+        let 0 = square
+        let 1 = line
+        let 2 = Lshape
+        let 3 = Jshape
+        let 4 = Tee
+        let 5 = Zshape
+        let 6 = Sshape
+         */
 	}
 	public WinterScenePanel()
 	{
