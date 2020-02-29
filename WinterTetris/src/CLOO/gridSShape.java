@@ -37,10 +37,13 @@ public class gridSShape {
         group[3][3][0]=3; group[3][3][1]=6; group[3][3][2]=0;
     }
     public void add(int[][][] data){
-        data[0][3][2] = 2; data[0][4][2] = 3; data[0][5][2] = 0; data[0][6][2] = 0;
-        data[1][3][2] = 2; data[1][4][2] = 2; data[1][5][2] = 0; data[1][6][2] = 0;
-        data[2][3][2] = 3; data[2][4][2] = 2; data[2][5][2] = 0; data[2][6][2] = 0;
-        data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
+        data[0][3][2] = 2; data[0][4][2] = 3;
+        //data[0][5][2] = 0; data[0][6][2] = 0;
+        data[1][3][2] = 2; data[1][4][2] = 2;
+        //data[1][5][2] = 0; data[1][6][2] = 0;
+        data[2][3][2] = 3; data[2][4][2] = 2;
+        //data[2][5][2] = 0; data[2][6][2] = 0;
+        //data[3][3][2] = 0; data[3][4][2] = 0; data[3][5][2] = 0; data[3][6][2] = 0;
     }
 
     public void rotOne(){
@@ -70,7 +73,7 @@ public class gridSShape {
     public void clearallTwos(int[][][] data){
         for (int row = 0; row < data.length; row ++) {
             for (int col = 0; col < data[row].length; col++) {
-                if(data[row][col][2]==2){
+                if(data[row][col][2]==2  || data[row][col][2]==3){
                     data[row][col][2]=0;
                 }
             }
@@ -88,7 +91,6 @@ public class gridSShape {
             }
         }
     }
-    // need to have all values slide over
     public void shiftedL(){
         for (int r = 0; r < group.length; r++) {
             for (int c = group[r].length-1; c>=0 ; c--) {

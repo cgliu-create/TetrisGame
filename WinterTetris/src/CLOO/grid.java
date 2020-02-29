@@ -310,7 +310,7 @@ public class grid{
     public void draw(Graphics window)
     {
         //uncomment to show ref box
-        /*
+
         if(shape == 1){
             line.draw(window,data);
         }
@@ -329,7 +329,7 @@ public class grid{
         if(shape == 6){
             sShape.draw(window,data);
         }
-        */
+
         /*
         let 0 = square
         let 1 = line
@@ -351,12 +351,12 @@ public class grid{
                     window.drawOval(b[1], b[0], 25,25);
                 }
                 // uncomment to show temp support spots
-                /*
+
                 if(b[2] == 3){
                     window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
-                 */
+
             }
         }
     }
