@@ -101,7 +101,24 @@ public class grid{
         setRotation(1);
     }
     // square does not need to rotate
-    public void rotateLine(int Rot){}
+    public void rotateLine(int Rot){
+        if(Rot == 1){
+            line.rotOne();
+            line.updateData(data);
+        }
+        if(Rot == 2){
+            line.rotTwo();
+            line.updateData(data);
+        }
+        if(Rot == 3){
+            line.rotThree();
+            line.updateData(data);
+        }
+        if(Rot == 4){
+            line.rotFour();
+            line.updateData(data);
+        }
+    }
     public void rotateLShape(int Rot){}
     public void rotateJShape(int Rot){}
     public void rotateTee(int Rot){}

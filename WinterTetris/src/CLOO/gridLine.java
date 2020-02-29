@@ -111,6 +111,7 @@ public class gridLine {
         }
     }
     public void draw(Graphics window, int[][][] data){
+        // draws a 4 by 4 ref box
         for (int[][] a : group) {
             for (int[] b : a) {
                 int dr = b[0];

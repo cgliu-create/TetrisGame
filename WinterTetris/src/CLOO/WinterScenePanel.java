@@ -47,7 +47,16 @@ public class WinterScenePanel extends JPanel implements Runnable
 		gamedata.shiftPlayerR();
 	}
 	public void makeRotation(){
-		//insert stuff
+		int r = 1;
+		if(gamedata.getShape()==1){
+			r = gamedata.getRotation();
+			r = r+1;
+			if (r == 5){
+				r = 1;
+			}
+			gamedata.setRotation(r);
+			gamedata.rotateLine(r);
+		}
 	}
 	public WinterScenePanel()
 	{
