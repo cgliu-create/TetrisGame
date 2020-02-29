@@ -210,15 +210,6 @@ public class grid{
             sShape.updateData(data);
         }
     }
-    public void clearallTwos(){
-        for (int row = 0; row < data.length; row ++) {
-            for (int col = 0; col < data[row].length; col++) {
-                if(data[row][col][2]==2){
-                    data[row][col][2]=0;
-                }
-            }
-        }
-    }
     public void updateGridShape(int dir){
         // 1 = left, 2 = right, 3 = down
         if(shape == 1){
@@ -318,6 +309,8 @@ public class grid{
     // window.drawOval(100, 20, 25, 25);
     public void draw(Graphics window)
     {
+        //uncomment to show ref box
+        /*
         if(shape == 1){
             line.draw(window,data);
         }
@@ -336,6 +329,7 @@ public class grid{
         if(shape == 6){
             sShape.draw(window,data);
         }
+        */
         /*
         let 0 = square
         let 1 = line
@@ -356,10 +350,13 @@ public class grid{
                     window.setColor(Color.WHITE);
                     window.drawOval(b[1], b[0], 25,25);
                 }
+                // uncomment to show temp support spots
+                /*
                 if(b[2] == 3){
                     window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
+                 */
             }
         }
     }

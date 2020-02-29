@@ -67,12 +67,24 @@ public class gridTee {
         group[2][0][2]=3; group[2][1][2]=2; group[2][2][2]=0; group[2][3][2]=0;
         group[3][0][2]=0; group[3][1][2]=0; group[3][2][2]=0; group[3][3][2]=0;
     }
+    public void clearallTwos(int[][][] data){
+        for (int row = 0; row < data.length; row ++) {
+            for (int col = 0; col < data[row].length; col++) {
+                if(data[row][col][2]==2){
+                    data[row][col][2]=0;
+                }
+            }
+        }
+    }
     public void updateData(int[][][] data){
+        clearallTwos(data);
         for (int r = 0; r < group.length; r++) {
             for (int c = 0; c < group[r].length; c++) {
                 int dr = group[r][c][0];
                 int dc = group[r][c][1];
-                data[dr][dc][2] = group[r][c][2];
+                if (group[r][c][2] == 2 || group[r][c][2] == 3){
+                    data[dr][dc][2] = group[r][c][2];
+                }
             }
         }
     }
