@@ -14,7 +14,8 @@ public class WinterScenePanel extends JPanel implements Runnable
 		gamedata.rowDelete();
 	}
 	public void addShape(){
-		int s =(int)(Math.random()*7);
+		//int s =(int)(Math.random()*7);
+		int s=1;
 		switch (s) {
 			case 1:
 				gamedata.addLine();

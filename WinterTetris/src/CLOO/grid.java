@@ -140,6 +140,7 @@ public class grid{
                 }
             }
         }
+        line.reset();
         return false;
     }
     // draws circles based off data

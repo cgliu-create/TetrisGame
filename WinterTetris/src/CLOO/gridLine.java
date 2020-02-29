@@ -26,15 +26,15 @@ public class gridLine {
         group[1][2][0]=1; group[1][2][1]=5; group[1][2][2]=0;
         group[1][3][0]=1; group[1][3][1]=6; group[1][3][2]=0;
 
-        group[2][0][0]=1; group[2][0][1]=3; group[2][0][2]=0;
-        group[2][1][0]=1; group[2][1][1]=4; group[2][1][2]=2;
-        group[2][2][0]=1; group[2][2][1]=5; group[2][2][2]=0;
-        group[2][3][0]=1; group[2][3][1]=6; group[2][3][2]=0;
+        group[2][0][0]=2; group[2][0][1]=3; group[2][0][2]=0;
+        group[2][1][0]=2; group[2][1][1]=4; group[2][1][2]=2;
+        group[2][2][0]=2; group[2][2][1]=5; group[2][2][2]=0;
+        group[2][3][0]=2; group[2][3][1]=6; group[2][3][2]=0;
 
-        group[3][0][0]=1; group[3][0][1]=3; group[3][0][2]=0;
-        group[3][1][0]=1; group[3][1][1]=4; group[3][1][2]=2;
-        group[3][2][0]=1; group[3][2][1]=5; group[3][2][2]=0;
-        group[3][3][0]=1; group[3][3][1]=6; group[3][3][2]=0;
+        group[3][0][0]=3; group[3][0][1]=3; group[3][0][2]=0;
+        group[3][1][0]=3; group[3][1][1]=4; group[3][1][2]=2;
+        group[3][2][0]=3; group[3][2][1]=5; group[3][2][2]=0;
+        group[3][3][0]=3; group[3][3][1]=6; group[3][3][2]=0;
     }
     public void add(int[][][] data){
         data[0][3][2] = 0; data[0][4][2] = 2; data[0][5][2] = 0; data[0][6][2] = 0;
@@ -80,6 +80,10 @@ public class gridLine {
             for (int c = 0; c < group[r].length; c++) {
                 int dc = group[r][c][1];
                 dc = dc - 1;
+                //can slide along ref box
+                if(dc == -1){
+                    dc = 3;
+                }
                 group[r][c][1] = dc;
             }
         }
@@ -89,6 +93,10 @@ public class gridLine {
             for (int c = 0; c < group[r].length; c++) {
                 int dc = group[r][c][1];
                 dc = dc + 1;
+                //can slide along ref box
+                if(dc == 12){
+                    dc = 8;
+                }
                 group[r][c][1] = dc;
             }
         }
