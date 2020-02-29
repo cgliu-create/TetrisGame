@@ -1,9 +1,7 @@
 package CLOO;
 
 public class gridSquare {
-
-    public gridSquare(){
-
+    public  gridSquare(){
     }
     public void add(int[][][] data){
         data[0][3][2] = 0; data[0][4][2] = 0; data[0][5][2] = 0; data[0][6][2] = 0;

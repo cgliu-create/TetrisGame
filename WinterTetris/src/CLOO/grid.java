@@ -1,7 +1,8 @@
 package CLOO;
 //Name -Christopher Liu
 //Class - P.8
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Color;
 
 public class grid{
     // let 0 = empty
@@ -99,6 +100,37 @@ public class grid{
         setShape(6);
         setRotation(1);
     }
+    // square does not need to rotate
+    public void rotateLine(int Rot){}
+    public void rotateLShape(int Rot){}
+    public void rotateJShape(int Rot){}
+    public void rotateTee(int Rot){}
+    public void rotateZShape(int Rot){}
+    public void rotateSShape(int Rot){}
+    public void clearallTwos(){
+        for (int row = 0; row < data.length; row ++) {
+            for (int col = 0; col < data[row].length; col++) {
+                if(data[row][col][2]==2){
+                    data[row][col][2]=0;
+                }
+            }
+        }
+    }
+    public void updateGridShape(int dir){
+        // 1 = left, 2 = right, 3 = down
+        if(shape == 1){
+            if (dir == 1){
+                line.shiftedL();
+            }
+            if (dir == 2){
+                line.shiftedR();
+            }
+            if (dir == 3){
+                line.shiftedD();
+            }
+        }
+        //add the rest of the shapes
+    }
     // checks to regenerate player shape
     public boolean checkforTwos(){
         for (int[][] datum : data) {
@@ -114,6 +146,9 @@ public class grid{
     // window.drawOval(100, 20, 25, 25);
     public void draw(Graphics window)
     {
+        if(shape == 1){
+            line.draw(window,data);
+        }
         for (int[][] a : data) {
             for (int[] b : a) {
                 if(b[2] == 1){
@@ -139,6 +174,7 @@ public class grid{
             }
             //shifts everything down deleting the full row adding a empty row to the top
             if (full){
+                updateGridShape(3);
                 for (int r = row; r > 0; r --) {
                     for (int c = 0; c < data[r].length; c++) {
                         data[r][c][2] = data[r-1][c][2];
@@ -153,6 +189,7 @@ public class grid{
     }
     // moves the shapes the player controls down (data with 2)
     public void shiftDownPlayer(){
+        updateGridShape(3);
         // reads ups rows
         for (int row = data.length-1; row > 0; row --) {
             //reads across col
@@ -188,6 +225,7 @@ public class grid{
         }
     }
     public void shiftPlayerL(){
+        updateGridShape(1);
         for (int col = 0; col < data[0].length-1; col++) {
             for (int row = 0; row< data.length; row ++) {
                 if(data[row][col][2] == 0 && data[row][col+1][2] == 2){
@@ -197,8 +235,9 @@ public class grid{
             }
         }
     }
-    //add bounds specific to shape!
+    // need to add bounds specific to shape to prevent shape group changes
     public void shiftPlayerR(){
+        updateGridShape(2);
         for (int col = data[0].length -1; col > 0; col-- ){
             for (int row = 0; row< data.length; row ++) {
                 if(data[row][col][2] == 0 && data[row][col-1][2] == 2){
