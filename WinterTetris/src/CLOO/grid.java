@@ -319,7 +319,6 @@ public class grid{
     public void draw(Graphics window)
     {
         //uncomment to show ref box
-
         if(shape == 1){
             line.draw(window,data);
         }
@@ -361,12 +360,10 @@ public class grid{
                     window.drawOval(b[1], b[0], 25,25);
                 }
                 // uncomment to show temp support spots
-
                 if(b[2] == 3){
                     window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
-
 
             }
         }
@@ -399,7 +396,6 @@ public class grid{
     }
     // moves the shapes the player controls down (data with 2)
     public void shiftDownPlayer(){
-        updateGridShape(3);
         // reads ups rows
         for (int row = data.length-1; row > 0; row --) {
             //reads across col
@@ -422,6 +418,7 @@ public class grid{
             }
 
         }
+        updateGridShape(3);
         removeThree();
         collisionWithOne();
     }
@@ -486,28 +483,31 @@ public class grid{
         }
     }
     public void resetShape(){
+        // check for no 3
+        boolean check = true;
         for (int[][] datum : data) {
             for (int[] ints : datum) {
-                if (ints[2] == 2) {
-                    if(shape == 1){
-                        line.updateData(data);
-                    }
-                    if(shape == 2){
-                        lShape.updateData(data);
-                    }
-                    if(shape == 3){
-                        jShape.updateData(data);
-                    }
-                    if(shape == 4){
-                        tee.updateData(data);
-                    }
-                    if(shape == 5){
-                        zShape.updateData(data);
-                    }
-                    if(shape == 6){
-                        sShape.updateData(data);
-                    }
+                if (ints[2] == 3) {
+                    check = false;
+                    break;
                 }
+            }
+        }
+        if (check) {
+            if(shape == 2){
+                lShape.updateData(data);
+            }
+            if(shape == 3){
+                jShape.updateData(data);
+            }
+            if(shape == 4){
+                tee.updateData(data);
+            }
+            if(shape == 5){
+                zShape.updateData(data);
+            }
+            if(shape == 6){
+                sShape.updateData(data);
             }
         }
     }

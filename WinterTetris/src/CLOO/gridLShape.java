@@ -132,6 +132,12 @@ public class gridLShape {
                 int dr = group[r][c][0];
                 dr = dr + 1;
                 group[r][c][0] = dr;
+                if(dr == 20){
+                    group[r][c][0] = 19;
+                    group[r-1][c][0] = 18;
+                    group[r-2][c][0] = 17;
+                    group[r-3][c][0] = 16;
+                }
             }
         }
     }
