@@ -135,6 +135,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 		String again = JOptionPane.showInputDialog(f, "Play again?");
 		if (again.equalsIgnoreCase("y") || again.equalsIgnoreCase("yes")) {
 			gamedata.resetGame();
+			resetScore();
 		} else {
 			System.exit(0);
 		}

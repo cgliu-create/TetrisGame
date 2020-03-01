@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WinterTetris:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WinterTetris_jar</output-path>
+    <root id="archive" name="WinterTetris.jar">
+      <element id="module-output" name="WinterTetris" />
+    </root>
+  </artifact>
+</component>
