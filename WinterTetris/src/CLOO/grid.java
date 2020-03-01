@@ -442,6 +442,7 @@ public class grid{
             for (int col = 0; col < data[data.length-1].length; col++ ){
                 if (data[row][col][2] == 0) {
                     full = false;
+                    break;
                 }
             }
             //shifts everything down deleting the full row adding a empty row to the top
