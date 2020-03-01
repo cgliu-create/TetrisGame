@@ -287,15 +287,6 @@ public class grid{
                 sShape.shiftedD();
             }
         }
-        /*
-        let 0 = square
-        let 1 = line
-        let 2 = Lshape
-        let 3 = Jshape
-        let 4 = Tee
-        let 5 = Zshape
-        let 6 = Sshape
-         */
     }
     // checks to regenerate player shape
     public boolean checkforTwos(){
@@ -319,7 +310,6 @@ public class grid{
     public void draw(Graphics window)
     {
         //uncomment to show ref box
-        /*
         if(shape == 1){
             line.draw(window,data);
         }
@@ -338,16 +328,6 @@ public class grid{
         if(shape == 6){
             sShape.draw(window,data);
         }
-         */
-        /*
-        let 0 = square
-        let 1 = line
-        let 2 = Lshape
-        let 3 = Jshape
-        let 4 = Tee
-        let 5 = Zshape
-        let 6 = Sshape
-         */
         for (int[][] a : data) {
             for (int[] b : a) {
                 if(b[2] == 1){
@@ -358,77 +338,12 @@ public class grid{
                     window.setColor(Color.WHITE);
                     window.drawOval(b[1], b[0], 25,25);
                 }
-                // uncomment to show temp support spots
-                /*
                 if(b[2] == 3){
                     window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
-                 */
             }
         }
-    }
-    // delete full rows
-    public void rowDelete(){
-        boolean full = true;
-        //checks if row is full
-        for (int row = data.length-1; row > 0; row --){
-            for (int col = 0; col < data[data.length-1].length; col++ ){
-                if (data[row][col][2] == 0) {
-                    full = false;
-                }
-            }
-            //shifts everything down deleting the full row adding a empty row to the top
-            if (full){
-                updateGridShape(3);
-                setRowdeleted(true);
-                for (int r = row; r > 0; r --) {
-                    for (int c = 0; c < data[r].length; c++) {
-                        data[r][c][2] = data[r-1][c][2];
-                    }
-                }
-                for (int c = 0; c < data[0].length; c++) {
-                    data[0][c][2] = 0;
-                }
-            }
-            full = true;
-        }
-    }
-    // moves the shapes the player controls down (data with 2)
-    public void shiftDownPlayer(){
-        // reads ups rows
-        for (int row = data.length-1; row > 0; row --) {
-            //reads across col
-            for (int col = 0; col < data[row].length; col++) {
-                if(data[row][col][2] == 0 && data[row-1][col][2] == 2 || data[row][col][2] == 0 && data[row-1][col][2] == 3){
-                    //shifts data down if cur is 0 and above is 2
-                    data[row][col][2] = data[row-1][col][2];
-                    data[row-1][col][2] = 0;
-                }
-            }
-        }
-        //if player is at bottom row, change player to 1
-        for (int col = 0; col < data[data.length-1].length; col++ ){
-            if (data[data.length-1][col][2] == 2) {
-                data[data.length-1][col][2] = 1;
-                //change all 2 to 1
-                for (int r= 0; r < data.length; r ++) {
-                    for (int c = 0; c < data[r].length; c++) {
-                        if(data[r][c][2] == 2){
-                            data[r][c][2] = 1;
-                        }
-                    }
-                }
-            }
-            // change 3 to 0
-            if (data[data.length-1][col][2] == 3) {
-                data[data.length-1][col][2] = 0;
-            }
-
-        }
-        updateGridShape(3);
-        removeThree();
-        collisionWithOne();
     }
     public void removeThree(){
         // change all 3 to 0 if a 1 is below
@@ -474,7 +389,7 @@ public class grid{
         }
     }
     public void collisionWithOne(){
-        for (int col = 0; col < data[0].length-1; col++) {
+        for (int col = 0; col < data[0].length; col++) {
             for (int row = data.length - 1; row >= 0; row--) {
                 // collision with a 1
                 if(data[row][col][2] == 1 && data[row-1][col][2] == 2 ){
@@ -517,6 +432,67 @@ public class grid{
             if(shape == 6){
                 sShape.updateData(data);
             }
+        }
+    }
+    // delete full rows
+    public void rowDelete(){
+        boolean full = true;
+        //checks if row is full
+        for (int row = data.length-1; row > 0; row --){
+            for (int col = 0; col < data[data.length-1].length; col++ ){
+                if (data[row][col][2] == 0) {
+                    full = false;
+                }
+            }
+            //shifts everything down deleting the full row adding a empty row to the top
+            if (full){
+                updateGridShape(3);
+                setRowdeleted(true);
+                for (int r = row; r > 0; r --) {
+                    for (int c = 0; c < data[r].length; c++) {
+                        data[r][c][2] = data[r-1][c][2];
+                    }
+                }
+                for (int c = 0; c < data[0].length; c++) {
+                    data[0][c][2] = 0;
+                }
+            }
+            full = true;
+        }
+    }
+    // moves the shapes the player controls down (data with 2)
+    public void shiftDownPlayer(){
+        updateGridShape(3);
+        removeThree();
+        collisionWithOne();
+        // reads ups rows
+        for (int row = data.length-1; row > 0; row --) {
+            //reads across col
+            for (int col = 0; col < data[row].length; col++) {
+                if(data[row][col][2] == 0 && data[row-1][col][2] == 2 || data[row][col][2] == 0 && data[row-1][col][2] == 3){
+                    //shifts data down if cur is 0 and above is 2
+                    data[row][col][2] = data[row-1][col][2];
+                    data[row-1][col][2] = 0;
+                }
+            }
+        }
+        //if player is at bottom row, change player to 1
+        for (int col = 0; col < data[data.length-1].length; col++ ){
+            if (data[data.length-1][col][2] == 2) {
+                //change all 2 to 1
+                for (int r= 0; r < data.length; r ++) {
+                    for (int c = 0; c < data[r].length; c++) {
+                        if(data[r][c][2] == 2){
+                            data[r][c][2] = 1;
+                        }
+                    }
+                }
+            }
+            // change 3 to 0
+            if (data[data.length-1][col][2] == 3) {
+                data[data.length-1][col][2] = 0;
+            }
+
         }
     }
     public void shiftPlayerL(){

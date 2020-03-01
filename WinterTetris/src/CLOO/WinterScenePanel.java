@@ -18,12 +18,15 @@ public class WinterScenePanel extends JPanel implements Runnable
 	private AbstractShape atree = new TREE(430, 330, 50, 50);
 	private grid gamedata = new grid();
 	public void updateGame(){
+		gamedata.collisionWithOne();
 		gamedata.shiftDownPlayer();
+		gamedata.collisionWithOne();
 		gamedata.rowDelete();
+		gamedata.collisionWithOne();
 	}
 	public void addShape(){
 		int s =(int)(Math.random()*7);
-		// testing s = 3;
+		// testing s = 1;
 		switch (s) {
 			case 1:
 				gamedata.addLine();
