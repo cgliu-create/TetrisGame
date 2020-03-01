@@ -403,7 +403,7 @@ public class grid{
             //reads across col
             for (int col = 0; col < data[row].length; col++) {
                 if(data[row][col][2] == 0 && data[row-1][col][2] == 2 || data[row][col][2] == 0 && data[row-1][col][2] == 3){
-                    //shifts data down cur is 0 and above is 2
+                    //shifts data down if cur is 0 and above is 2
                     data[row][col][2] = data[row-1][col][2];
                     data[row-1][col][2] = 0;
                 }
@@ -420,10 +420,13 @@ public class grid{
             }
 
         }
+        removeThree();
+        collisionWithOne();
+    }
+    public void removeThree(){
+        // change all 3 to 0 if a 1 is below
         for (int row = data.length-1; row > 0; row --) {
-            //reads across col
             for (int col = 0; col < data[row].length; col++) {
-                // change all 3 to 0 if a 1 is below
                 if(data[row][col][2] == 1 && data[row-1][col][2] == 3 ){
                     for (int r= 0; r < data.length; r ++) {
                         for (int c = 0; c < data[r].length; c++) {
@@ -433,6 +436,39 @@ public class grid{
                         }
                     }
                 }
+            }
+        }
+        // removes 3 when player is to the side of 1
+        for (int col = 0; col < data[0].length-1; col++) {
+            for (int row = data.length - 1; row >= 0; row--) {
+                if(data[row][col][2] == 1 && data[row][col+1][2] == 3){
+                    for (int r= 0; r < data.length; r ++) {
+                        for (int c = 0; c < data[r].length; c++) {
+                            if(data[r][c][2] == 3){
+                                data[r][c][2] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        for (int col = data[0].length -1; col > 0; col-- ) {
+            for (int row = data.length - 1; row >= 0; row--) {
+                if(data[row][col][2] == 1 && data[row][col-1][2] == 3){
+                    for (int r= 0; r < data.length; r ++) {
+                        for (int c = 0; c < data[r].length; c++) {
+                            if(data[r][c][2] == 3){
+                                data[r][c][2] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void collisionWithOne(){
+        for (int col = 0; col < data[0].length-1; col++) {
+            for (int row = data.length - 1; row >= 0; row--) {
                 // collision with a 1
                 if(data[row][col][2] == 1 && data[row-1][col][2] == 2 ){
                     //change all 2 to 1
@@ -449,28 +485,30 @@ public class grid{
     }
     public void shiftPlayerL(){
         updateGridShape(1);
-
         for (int col = 0; col < data[0].length-1; col++) {
-            for (int row = 0; row< data.length; row ++) {
+            for (int row = data.length - 1; row>=0; row --) {
                 if(data[row][col][2] == 0 && data[row][col+1][2] == 2  || data[row][col][2] == 0 && data[row][col+1][2] == 3){
                     data[row][col][2] = data[row][col+1][2];
                     data[row][col+1][2] = 0;
                 }
             }
         }
+        removeThree();
+        collisionWithOne();
     }
     // need to add bounds specific to shape to prevent shape group changes
     public void shiftPlayerR(){
         updateGridShape(2);
-
         for (int col = data[0].length -1; col > 0; col-- ){
-            for (int row = 0; row< data.length; row ++) {
+            for (int row = data.length - 1; row>=0; row --) {
                 if(data[row][col][2] == 0 && data[row][col-1][2] == 2 || data[row][col][2] == 0 && data[row][col-1][2] == 3){
                     data[row][col][2] = data[row][col-1][2];
                     data[row][col-1][2] = 0;
                 }
             }
         }
+        removeThree();
+        collisionWithOne();
     }
     public void resetGame(){
         for (int row = 0; row < data.length; row ++) {
