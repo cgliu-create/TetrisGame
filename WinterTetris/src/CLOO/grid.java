@@ -319,6 +319,7 @@ public class grid{
     public void draw(Graphics window)
     {
         //uncomment to show ref box
+        /*
         if(shape == 1){
             line.draw(window,data);
         }
@@ -337,8 +338,7 @@ public class grid{
         if(shape == 6){
             sShape.draw(window,data);
         }
-
-
+         */
         /*
         let 0 = square
         let 1 = line
@@ -348,7 +348,6 @@ public class grid{
         let 5 = Zshape
         let 6 = Sshape
          */
-
         for (int[][] a : data) {
             for (int[] b : a) {
                 if(b[2] == 1){
@@ -360,11 +359,12 @@ public class grid{
                     window.drawOval(b[1], b[0], 25,25);
                 }
                 // uncomment to show temp support spots
+                /*
                 if(b[2] == 3){
                     window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
-
+                 */
             }
         }
     }
@@ -411,6 +411,14 @@ public class grid{
         for (int col = 0; col < data[data.length-1].length; col++ ){
             if (data[data.length-1][col][2] == 2) {
                 data[data.length-1][col][2] = 1;
+                //change all 2 to 1
+                for (int r= 0; r < data.length; r ++) {
+                    for (int c = 0; c < data[r].length; c++) {
+                        if(data[r][c][2] == 2){
+                            data[r][c][2] = 1;
+                        }
+                    }
+                }
             }
             // change 3 to 0
             if (data[data.length-1][col][2] == 3) {
