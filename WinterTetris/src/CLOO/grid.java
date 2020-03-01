@@ -339,6 +339,7 @@ public class grid{
             sShape.draw(window,data);
         }
 
+
         /*
         let 0 = square
         let 1 = line
@@ -365,6 +366,7 @@ public class grid{
                     window.setColor(Color.GREEN);
                     window.drawOval(b[1], b[0], 25,25);
                 }
+
 
             }
         }
@@ -483,6 +485,32 @@ public class grid{
             }
         }
     }
+    public void resetShape(){
+        for (int[][] datum : data) {
+            for (int[] ints : datum) {
+                if (ints[2] == 2) {
+                    if(shape == 1){
+                        line.updateData(data);
+                    }
+                    if(shape == 2){
+                        lShape.updateData(data);
+                    }
+                    if(shape == 3){
+                        jShape.updateData(data);
+                    }
+                    if(shape == 4){
+                        tee.updateData(data);
+                    }
+                    if(shape == 5){
+                        zShape.updateData(data);
+                    }
+                    if(shape == 6){
+                        sShape.updateData(data);
+                    }
+                }
+            }
+        }
+    }
     public void shiftPlayerL(){
         updateGridShape(1);
         for (int col = 0; col < data[0].length-1; col++) {
@@ -495,6 +523,7 @@ public class grid{
         }
         removeThree();
         collisionWithOne();
+        resetShape();
     }
     // need to add bounds specific to shape to prevent shape group changes
     public void shiftPlayerR(){
@@ -509,6 +538,7 @@ public class grid{
         }
         removeThree();
         collisionWithOne();
+        resetShape();
     }
     public void resetGame(){
         for (int row = 0; row < data.length; row ++) {
