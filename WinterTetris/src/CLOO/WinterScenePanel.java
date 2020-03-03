@@ -22,6 +22,7 @@ public class WinterScenePanel extends JPanel implements Runnable
 		gamedata.collisionWithOne();
 		gamedata.rowDelete();
 		gamedata.collisionWithOne();
+		gamedata.RemoveParticles();
 	}
 	public void addShape(){
 		int s =(int)(Math.random()*7);

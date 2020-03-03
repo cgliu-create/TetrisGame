@@ -3,8 +3,49 @@ package CLOO;
 //Class - P.8
 import java.awt.Graphics;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class grid{
+    private ArrayList<Particle> particles = new ArrayList<Particle>();
+    // Particle Stuff
+    // http://www.java-gaming.org/topics/particles-basics-to-advanced/26885/view.html
+    public void RemoveParticles(){
+        for(int i = particles.size()-1; i>=0; i--){
+            if(particles.get(i).update()) // changes particle values, removes if life = 0
+            {
+                particles.remove(i);
+            }
+        }
+    }
+    public void DrawAllParticles(Graphics window){
+        for(int i = 0; i <= particles.size() - 1;i++){
+            particles.get(i).draw(window); // draws/redraw all particles
+        }
+    }
+    public void addParticle(int dir, int sx, int sy, Color c){
+        int dx=0; int dy=0;
+        // 1 = R, 2 = D, 3 = L, 4 = U
+        if(dir == 1){
+            dx = (int) (Math.random()*5); dy = (int) (Math.random()*5);
+        }
+        if(dir == 2){
+            dx = (int) (Math.random()*-5); dy = (int) (Math.random()*5);
+        }
+        if(dir == 3){
+            dx = (int) (Math.random()*-5); dy = (int) (Math.random()*-5);
+        }
+        if(dir == 4){
+            dx = (int) (Math.random()*5); dy = (int) (Math.random()*-5);
+        }
+        int size = (int) (Math.random()*12);
+        int life = (int) Math.random()*(50)+10;
+        particles.add(new Particle(sx,sy,size,size,c,dx,dy,life));
+    }
+    // cool stuff
+    public void KaBoom(int sx, int sy, Color c){
+        addParticle(1, sx, sy, c); addParticle(2, sx, sy, c); addParticle(3, sx, sy, c); addParticle(4, sx, sy, c);
+        addParticle(1, sx, sy, c); addParticle(2, sx, sy, c); addParticle(3, sx, sy, c); addParticle(4, sx, sy, c);
+    }
     // let 0 = empty
     // let 1 = draw shape
     // let 2 = draw a shape that the player can move
@@ -309,6 +350,7 @@ public class grid{
     // window.drawOval(100, 20, 25, 25);
     public void draw(Graphics window)
     {
+        DrawAllParticles(window);
         //uncomment to show ref box
         if(shape == 1){
             line.draw(window,data);
@@ -438,6 +480,7 @@ public class grid{
     public void rowDelete(){
         boolean full = true;
         //checks if row is full
+        int rr = data.length-1;
         for (int row = data.length-1; row > 0; row --){
             for (int col = 0; col < data[data.length-1].length; col++ ){
                 if (data[row][col][2] == 0) {
@@ -447,6 +490,11 @@ public class grid{
             }
             //shifts everything down deleting the full row adding a empty row to the top
             if (full){
+                for (int c = 0; c < data[data.length-1].length; c++ ){
+                    int y = data[rr][c][0];
+                    int x = data[rr][c][1];
+                    KaBoom(x,y,Color.RED);
+                }
                 updateGridShape(3);
                 setRowdeleted(true);
                 for (int r = row; r > 0; r --) {
@@ -459,6 +507,7 @@ public class grid{
                 }
             }
             full = true;
+            rr--;
         }
     }
     // moves the shapes the player controls down (data with 2)
