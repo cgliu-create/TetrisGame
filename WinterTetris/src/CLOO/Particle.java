@@ -15,7 +15,7 @@ public class Particle extends AbstractShape{
     @Override
     public void draw(Graphics window) {
         window.setColor(getColor());
-        window.fillRect(getXPos()-(getWidth()/2), getYPos()-(getHeight()/2), getWidth(), getHeight());
+        window.drawOval(getXPos()-(getWidth()/2), getYPos()-(getHeight()/2), getWidth(), getHeight());
     }
 
     @Override

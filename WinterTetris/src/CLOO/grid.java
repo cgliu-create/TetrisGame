@@ -38,7 +38,7 @@ public class grid{
             dx = (int) (Math.random()*5); dy = (int) (Math.random()*-5);
         }
         int size = (int) (Math.random()*12);
-        int life = (int) Math.random()*(50)+10;
+        int life = (int) (Math.random()*5)+1;
         particles.add(new Particle(sx,sy,size,size,c,dx,dy,life));
     }
     // cool stuff
